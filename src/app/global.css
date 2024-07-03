@@ -13,7 +13,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: url("./../assets/img/bg.jpg") #030728 no-repeat;
+    background: url("./../../public/assets/img/bg.jpg") #030728 no-repeat;
     background-size: cover;
 }
 
@@ -66,13 +66,10 @@ body {
     transition: all 0.3s;
     opacity: 0.8;
 }
-.card-list .card-item .social-links a i {
-    background: linear-gradient(45deg, #ff97ff, #7ef7f7, #fb75fb);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
+.card-list .card-item .social-links a svg {
+    color: #6cebff !important;
 }
+
 .card-list .card-item .social-links a:hover {
     opacity: 1;
     text-decoration: none;
@@ -103,8 +100,14 @@ body {
     opacity: 0.5;
 }
 
+
 .slider-wrapper .swiper-pagination-bullet-active {
     opacity: 1;
+}
+
+.slider-wrapper .swiper-pagination {
+    top: -15px !important;
+    position: relative;
 }
 
 .slider-wrapper .swiper-slide-button {

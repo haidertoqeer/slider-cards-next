@@ -1,145 +1,102 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client'
 import "./global.css";
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-// import 'swiper/swiper-bundle.min.css';
-import 'swiper/swiper-bundle.css';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import SliderCardComponent from "@/component/SliderCardComponent";
+
+const data = [
+    {
+        "userName": "Sophia Hernandez",
+        "userProfession": "Marketing Manager",
+        "userImage": "assets/img/img-1.jpg",
+        "facebookUrl": "#",
+        "twitterUrl": "#",
+        "instagramUrl": "#",
+        "linkedinUrl": "#",
+        "contactText": "Contact Me"
+    },
+    {
+        "userName": "James Smith",
+        "userProfession": "Project Manager",
+        "userImage": "assets/img/img-2.jpg",
+        "facebookUrl": "#",
+        "twitterUrl": "#",
+        "instagramUrl": "#",
+        "linkedinUrl": "#",
+        "contactText": "Contact Me"
+    },
+    {
+        "userName": "Emma Johnson",
+        "userProfession": "Software Engineer",
+        "userImage": "assets/img/img-3.jpg",
+        "facebookUrl": "#",
+        "twitterUrl": "#",
+        "instagramUrl": "#",
+        "linkedinUrl": "#",
+        "contactText": "Contact Me"
+    },
+    {
+        "userName": "Liam Brown",
+        "userProfession": "Data Scientist",
+        "userImage": "assets/img/img-4.jpg",
+        "facebookUrl": "#",
+        "twitterUrl": "#",
+        "instagramUrl": "#",
+        "linkedinUrl": "#",
+        "contactText": "Contact Me"
+    },
+    {
+        "userName": "Olivia Lee",
+        "userProfession": "Financial Analyst",
+        "userImage": "assets/img/img-5.jpg",
+        "facebookUrl": "#",
+        "twitterUrl": "#",
+        "instagramUrl": "#",
+        "linkedinUrl": "#",
+        "contactText": "Contact Me"
+    },
+    {
+        "userName": "Ava Patel",
+        "userProfession": "Graphic Designer",
+        "userImage": "assets/img/img-6.jpg",
+        "facebookUrl": "#",
+        "twitterUrl": "#",
+        "instagramUrl": "#",
+        "linkedinUrl": "#",
+        "contactText": "Contact Me"
+    }
+]
 
 export default function Home() {
-  return (
-    <div class="container swiper">
-    <div class="slider-wrapper">
-        <div class="card-list swiper-wrapper">
-            <div class="card-item swiper-slide">
-                <img src="assets/img/img-1.jpg" alt="User Image" class="user-image" />
-                <h2 class="user-name">Sophia Hernandez</h2>
-                <p class="user-profession">Marketing Manager</p>
-                <p class="social-links">
-                    <a href="#">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa-brands fa-x-twitter"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </a>
-                </p>
-                <button class="gradient-border-button">Contact Now</button>
+    return (
+        <div className="container swiper">
+            <div className="container swiper">
+                <div className="slider-wrapper">
+                    <div className="card-list swiper-wrapper">
+                        <Swiper
+                            modules={[Navigation, Pagination, Autoplay]}
+                            spaceBetween={50}
+                            slidesPerView={3}
+                            loop={true}
+                            loopFillGroupWithBlank={true}
+                            navigation
+                            pagination={{ clickable: true }}
+                            autoplay={{ delay: 3000, disableOnInteraction: false }}
+                        >
+                            {data && data.length > 0 && data.map((item, index) => (
+                                <SwiperSlide key={index}>
+                                    <SliderCardComponent item={item} />
+                                </SwiperSlide>
+                            ))}
+
+                        </Swiper>
+                    </div>
+                </div>
             </div>
 
-            <div class="card-item swiper-slide">
-                <img src="assets/img/img-2.jpg" alt="User Image" class="user-image" />
-                <h2 class="user-name">James Smith</h2>
-                <p class="user-profession">Project Manager</p>
-                <p class="social-links">
-                    <a href="#">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa-brands fa-x-twitter"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </a>
-                </p>
-                <button class="gradient-border-button">Contact Now</button>
-            </div>
-
-            <div class="card-item swiper-slide">
-                <img src="assets/img/img-3.jpg" alt="User Image" class="user-image" />
-                <h2 class="user-name">Emma Johnson</h2>
-                <p class="user-profession">Software Engineer</p>
-                <p class="social-links">
-                    <a href="#">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa-brands fa-x-twitter"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </a>
-                </p>
-                <button class="gradient-border-button">Contact Now</button>
-            </div>
-
-            <div class="card-item swiper-slide">
-                <img src="assets/img/img-4.jpg" alt="User Image" class="user-image" />
-                <h2 class="user-name">Liam Brown </h2>
-                <p class="user-profession">Data Scientist</p>
-                <p class="social-links">
-                    <a href="#">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa-brands fa-x-twitter"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </a>
-                </p>
-                <button class="gradient-border-button">Contact Now</button>
-            </div>
-
-            <div class="card-item swiper-slide">
-                <img src="assets/img/img-5.jpg" alt="User Image" class="user-image" />
-                <h2 class="user-name">Olivia Lee</h2>
-                <p class="user-profession">Financial Analyst</p>
-                <p class="social-links">
-                    <a href="#">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa-brands fa-x-twitter"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </a>
-                </p>
-                <button class="gradient-border-button">Contact Now</button>
-            </div>
-
-            <div class="card-item swiper-slide">
-                <img src="assets/img/img-6.jpg" alt="User Image" class="user-image" />
-                <h2 class="user-name">Ava Patel</h2>
-                <p class="user-profession">Graphic Designer</p>
-                <p class="social-links">
-                    <a href="#">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa-brands fa-x-twitter"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </a>
-                </p>
-                <button class="gradient-border-button">Contact Now</button>
-            </div>
         </div>
-        <div class="swiper-pagination"></div>
-            <div class="swiper-slide-button swiper-button-prev"></div>
-            <div class="swiper-slide-button swiper-button-next"></div>
-    </div>
-    </div>
-  );
+    );
 }

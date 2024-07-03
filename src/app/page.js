@@ -79,12 +79,26 @@ export default function Home() {
                         <Swiper
                             modules={[Navigation, Pagination, Autoplay]}
                             spaceBetween={50}
-                            slidesPerView={3}
                             loop={true}
                             loopFillGroupWithBlank={true}
                             navigation
                             pagination={{ clickable: true }}
                             autoplay={{ delay: 3000, disableOnInteraction: false }}
+                            breakpoints={{
+                                480: {
+                                    slidesPerView: 1,
+                                    spaceBetween: 20
+                                },
+                                767: {
+                                    slidesPerView: 2,
+                                    spaceBetween: 30
+                                },
+                                // when window width is >= 640px
+                                992: {
+                                    slidesPerView: 3,
+                                    spaceBetween: 40
+                                }
+                            }}
                         >
                             {data && data.length > 0 && data.map((item, index) => (
                                 <SwiperSlide key={index}>
